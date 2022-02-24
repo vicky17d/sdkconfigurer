@@ -9,6 +9,7 @@
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.github.vicky17d.sdkconfigurer.services.MyApplicationService"/>
         <projectService serviceImplementation="com.github.vicky17d.sdkconfigurer.services.MyProjectService"/>
+        <projectService serviceImplementation="com.github.vicky17d.sdkconfigurer.ProjectSDKConfigurer" preload="true"/>
     </extensions>
 
     <applicationListeners>
