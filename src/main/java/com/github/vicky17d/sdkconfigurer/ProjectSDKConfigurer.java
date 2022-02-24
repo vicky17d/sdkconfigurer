@@ -6,8 +6,6 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.projectRoots.JavaSdk;
 import com.intellij.openapi.roots.ProjectRootManager;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.plugins.gradle.settings.GradleProjectSettings;
-import org.jetbrains.plugins.gradle.settings.GradleSettings;
 
 public class ProjectSDKConfigurer {
 
@@ -23,21 +21,22 @@ public class ProjectSDKConfigurer {
 
         final ProjectRootManager projectRootMgr = ProjectRootManager.getInstance(project);
         final String productSpecJdkVersion = getProductPecJdkVersion(project);
+        LOG.info("### sdkconfigurer plugin: Setting project SDK...");
         projectRootMgr.setProjectSdkName(productSpecJdkVersion, JavaSdk.getInstance().getName());
-        setGradleJvm(project, productSpecJdkVersion);
+//        setGradleJvm(project, productSpecJdkVersion);
     }
 
-    private void setGradleJvm(@NotNull Project project, String jdkVersion) {
-        String basePath = project.getBasePath();
-        if (basePath != null) {
-            GradleProjectSettings gradleSettings = GradleSettings.getInstance(project).getLinkedProjectSettings(basePath);
-            if (gradleSettings != null) {
-                gradleSettings.setGradleJvm(jdkVersion);
-            }
-        }
-    }
+//    private void setGradleJvm(@NotNull Project project, String jdkVersion) {
+//        String basePath = project.getBasePath();
+//        if (basePath != null) {
+//            GradleProjectSettings gradleSettings = GradleSettings.getInstance(project).getLinkedProjectSettings(basePath);
+//            if (gradleSettings != null) {
+//                gradleSettings.setGradleJvm(jdkVersion);
+//            }
+//        }
+//    }
 
     private String getProductPecJdkVersion(@NotNull Project project) {
-        return "11.0.8-msft";
+        return "11";
     }
 }

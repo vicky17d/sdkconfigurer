@@ -5,7 +5,8 @@
     <vendor>vicky17d</vendor>
 
     <depends>com.intellij.modules.platform</depends>
-
+    <depends>com.intellij.java</depends>
+    <depends>org.jetbrains.plugins.gradle</depends>
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.github.vicky17d.sdkconfigurer.services.MyApplicationService"/>
         <projectService serviceImplementation="com.github.vicky17d.sdkconfigurer.services.MyProjectService"/>
